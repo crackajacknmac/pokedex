@@ -2,6 +2,8 @@ package main
 
 type config struct {
 	registry map[string]cliCommand
+	pageNext *string
+	pageBack *string
 }
 
 type cliCommand struct {
