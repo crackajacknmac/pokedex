@@ -2,10 +2,9 @@ package pokeapi
 
 import (
 "errors"
-"fmt"
 "io"
-"log"
 "net/http"
+"encoding/json"
 )
 
 type LocationAreaResponse struct {
@@ -20,8 +19,14 @@ type LocationAreaResponse struct {
 
 
 
-func GetLocations(url string) (resp LocationAreaResponse, err error) {
-	res, err := http.Get(url)
+func GetLocations(url *string) (resp LocationAreaResponse, err error) {
+	var endpoint string
+	if url == nil {
+		endpoint = "https://pokeapi.co/api/v2/location-area"
+		} else {
+			endpoint = *url
+		}
+	res, err := http.Get(endpoint)
 	if err != nil {
 		return LocationAreaResponse{}, errors.New("no valid url")
 		}
