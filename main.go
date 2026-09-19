@@ -30,6 +30,11 @@ func main() {
 		description: "Displays location data",
 		callback:	commandMap,
 	},
+	"mapb": {
+		name:		"mapb",
+		description: "Displays previous location data",
+		callback:	commandMapb,
+	},
     }
 
 	startREPL(newConfig)

@@ -1,16 +1,20 @@
 package main
 
 import (
+"errors"
+"fmt"
 "github.com/crackajacknmac/pokedex/internal/pokeapi"
 )
 
 func commandMap(fig *config) error {
-        resp, err := pokeapi.GetLocations(config.pageNext)
+        resp, err := pokeapi.GetLocations(fig.pageNext)
 	if err != nil {
-		return error.New("incorrect location url")
+		return errors.New("incorrect location url")
 	}
-	config.pageBack = resp
-	config.pageNext = 
-	//come back to this statement for your notes
+	fig.pageBack = resp.Previous
+	fig.pageNext = resp.Next
+	for _, location := range resp.Results {
+		fmt.Printf("%s\n", location.Name)
+	}
 	return nil
 }
