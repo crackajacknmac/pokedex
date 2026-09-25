@@ -7,10 +7,11 @@ import (
 
 func NewCache(interval time.Duration) Cache {
 	entries := make(map[string]cacheEntry)
-	return Cache {
+	c := Cache {
 		entries: entries,
 		mutex: sync.Mutex{},
 		interval: interval,
 	}
-
+	go c.reapLoop()
+	return c
 }

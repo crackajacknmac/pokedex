@@ -1,7 +1,6 @@
 package pokecache
 
 import (
-	"sync"
 	"time"
 )
 

@@ -19,7 +19,7 @@ type LocationAreaResponse struct {
 
 
 
-func GetLocations(url *string) (resp LocationAreaResponse, err error) {
+func (c Client) GetLocations(url *string) (resp LocationAreaResponse, err error) {
 	var endpoint string
 	if url == nil {
 		endpoint = "https://pokeapi.co/api/v2/location-area"

@@ -11,7 +11,7 @@ func commandMapb(fig *config) error {
 		fmt.Println("you're on the first page")
 		return nil
 	}
-	resp, err := pokeapi.GetLocations(fig.pageBack)
+	resp, err := fig.pokeapiClient.GetLocations(fig.pageBack)
 	if err != nil {
 		return errors.New("incorrect location url")
 	}

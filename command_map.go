@@ -7,7 +7,7 @@ import (
 )
 
 func commandMap(fig *config) error {
-        resp, err := pokeapi.GetLocations(fig.pageNext)
+        resp, err := fig.pokeapiClient.GetLocations(fig.pageNext)
 	if err != nil {
 		return errors.New("incorrect location url")
 	}

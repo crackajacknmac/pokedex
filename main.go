@@ -1,9 +1,14 @@
 package main
 
+import (
+	"github.com/crackajacknmac/pokedex/internal/pokeapi"
+)
+
 type config struct {
 	registry map[string]cliCommand
 	pageNext *string
 	pageBack *string
+	pokeapiClient pokeapi.Client
 }
 
 type cliCommand struct {
@@ -14,6 +19,7 @@ type cliCommand struct {
 
 func main() {
 	newConfig := &config{}
+	newConfig.pokeapi.NewClient()
         newConfig.registry = map[string]cliCommand{
         "exit": {
                 name:        "exit",
