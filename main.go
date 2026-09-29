@@ -1,4 +1,4 @@
-package main
+cpackage main
 
 import (
 	"time"
@@ -41,6 +41,11 @@ func main() {
 		name:		"mapb",
 		description: "Displays previous location data",
 		callback:	commandMapb,
+	},
+	"explore": {
+		name:		"explore",
+		description:	"Displays more details about location",
+		callback:	explore,
 	},
     }
 
