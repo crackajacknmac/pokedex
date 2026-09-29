@@ -3,7 +3,6 @@ package main
 import (
 "errors"
 "fmt"
-"github.com/crackajacknmac/pokedex/internal/pokeapi"
 )
 
 func commandMap(fig *config) error {

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"time"
 	"github.com/crackajacknmac/pokedex/internal/pokeapi"
 )
 
@@ -19,7 +20,7 @@ type cliCommand struct {
 
 func main() {
 	newConfig := &config{}
-	newConfig.pokeapi.NewClient()
+	newConfig.pokeapiClient = pokeapi.NewClient(5 * time.Second)
         newConfig.registry = map[string]cliCommand{
         "exit": {
                 name:        "exit",
