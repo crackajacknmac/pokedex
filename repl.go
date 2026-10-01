@@ -9,7 +9,7 @@ import (
 func startREPL(fig *config) {
         scanner := bufio.NewScanner(os.Stdin)
         for {
-                fmt.Print("Pokedex > \n")
+                fmt.Print("Pokedex > ")
                 scanner.Scan()
                 text := scanner.Text()
                 cleanText := cleanInput(text)
@@ -18,7 +18,7 @@ func startREPL(fig *config) {
                         }
                 command, ok := fig.registry[cleanText[0]]
                 if ok {
-                        err := command.callback(fig)
+                        err := command.callback(fig, cleanText[1:]...)
                         if err != nil {
                                 fmt.Println(err)
                                 }

@@ -5,7 +5,7 @@ import (
 )
 
 
-func commandHelp(fig *config) error {
+func commandHelp(fig *config, _ ...string) error {
         fmt.Printf("Welcome to the Pokedex!\n")
         fmt.Printf("Usage:\n\n")
         for _, a := range fig.registry {

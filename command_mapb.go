@@ -5,7 +5,7 @@ import (
 "errors"
 )
 
-func commandMapb(fig *config) error {
+func commandMapb(fig *config, _ ...string) error {
 	if fig.pageBack == nil {
 		fmt.Println("you're on the first page")
 		return nil

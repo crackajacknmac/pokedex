@@ -5,7 +5,7 @@ import (
 "fmt"
 )
 
-func commandMap(fig *config) error {
+func commandMap(fig *config, _ ...string) error {
         resp, err := fig.pokeapiClient.GetLocations(fig.pageNext)
 	if err != nil {
 		return errors.New("incorrect location url")

@@ -1,4 +1,4 @@
-cpackage main
+package main
 
 import (
 	"time"
@@ -15,7 +15,7 @@ type config struct {
 type cliCommand struct {
 	name        string
 	description string
-	callback    func(*config) error
+	callback    func(*config, ...string) error
 }
 
 func main() {
@@ -45,7 +45,7 @@ func main() {
 	"explore": {
 		name:		"explore",
 		description:	"Displays more details about location",
-		callback:	explore,
+		callback:	commandExplore,
 	},
     }
 
