@@ -10,6 +10,7 @@ type config struct {
 	pageNext *string
 	pageBack *string
 	pokeapiClient pokeapi.Client
+	pokedex map[string]pokeapi.PokemonInfo
 }
 
 type cliCommand struct {
@@ -21,6 +22,7 @@ type cliCommand struct {
 func main() {
 	newConfig := &config{}
 	newConfig.pokeapiClient = pokeapi.NewClient(5 * time.Second)
+	newConfig.pokedex = make(map[string]pokeapi.PokemonInfo)
         newConfig.registry = map[string]cliCommand{
         "exit": {
                 name:        "exit",
@@ -46,6 +48,11 @@ func main() {
 		name:		"explore",
 		description:	"Displays more details about location",
 		callback:	commandExplore,
+	},
+	"catch": {
+		name:		"catch",
+		description:	"Attempt to catch specified pokemon",
+		callback: 	commandCatch,
 	},
     }
 
