@@ -54,6 +54,11 @@ func main() {
 		description:	"Attempt to catch specified pokemon",
 		callback: 	commandCatch,
 	},
+	"inspect": {
+		name:		"inspect",
+		description:	"Provides information about specified pokemon",
+		callback:	commandInspect,
+	},
     }
 
 	startREPL(newConfig)
