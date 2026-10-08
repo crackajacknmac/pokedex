@@ -59,6 +59,11 @@ func main() {
 		description:	"Provides information about specified pokemon",
 		callback:	commandInspect,
 	},
+	"pokedex": {
+		name:		"pokedex",
+		description:	"Lists contents of pokedex",
+		callback:	commandPokedex,
+	},
     }
 
 	startREPL(newConfig)

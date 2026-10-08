@@ -21,6 +21,7 @@ func commandCatch(fig *config, args ...string) error {
 	roll := rand.Intn(320)
 	if roll >= difficulty {
 		fmt.Printf("%v was caught!\n", pokename)
+		fmt.Println("You may now inspect it with the inspect command.") 
 		fig.pokedex[pokename] = resp
 	} else {
 		fmt.Printf("%v escaped!\n", pokename)
